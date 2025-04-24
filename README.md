@@ -1,1 +1,1 @@
-Version 1.0
+https://github.com/KurDT42/slozhno-sosredotochitsya-fd.git
