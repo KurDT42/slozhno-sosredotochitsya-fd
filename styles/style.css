@@ -71,7 +71,11 @@
 }
 
 .header__theme-menu-button:focus {
-  border-bottom: 1px solid var(--font-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
 }
 
 .header__title__list {
@@ -111,8 +115,8 @@
   left: 10px;
   width: 25px;
   height: 25px;
-  border-bottom: 2px solid rgba(255, 0, 112, 1);
-  border-left: 2px solid rgba(255, 0, 112, 1);
+  border-bottom: 2px solid var(--accent-color);
+  border-left: 2px solid var(--accent-color);
 }
 
 .title-decor {
@@ -227,7 +231,7 @@
   text-align: center;
 }
 
-footer {
+.footer {
   top: 10px;
   position: relative;
   bottom: 10px;
