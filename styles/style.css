@@ -1,5 +1,22 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
+.header {
+  display: grid;
+  grid-template-rows: min-content min-content min-content;
+  min-height: 668px;
+  row-gap: 55px;
+  background-image: var(--background-image);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+
+.header__desc {
+  justify-self: right;
+  align-self: right;
+}
+
 .page {
   position: relative;
   font-family: var(--font-main, sans-serif);
@@ -7,12 +24,14 @@
    чтобы составлять селекторы для разных цветовых тем. */
   padding-left: 10px;
   padding-right: 10px;
+  background-color: var(--background-color);
+
+
 
 }
 
 .header__theme-menu-list {
-  padding-top: 74px;
-  padding-right: 10px;
+  padding-top: 5rem;
   display: grid;
   grid-template-columns: min-content;
   justify-content: end;
@@ -49,9 +68,13 @@
   box-shadow: 0 0 5px 5px rgba(255, 0, 112, 1);
 }
 
+.theme-light .dark_rec {
+  display: none;
+}
+
 .header__theme-menu-button {
   background-color: transparent;
-  color: var(--accent-color);
+  color: var(--font-color);
   text-transform: lowercase;
   border: none;
   cursor: pointer;
@@ -64,10 +87,11 @@
 
 .header__theme-menu-button_active {
   border: 1px solid var(--accent-color);
+  pointer-events: none;
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--opacity-border);
 }
 
 .header__theme-menu-button:focus {
@@ -78,17 +102,8 @@
   outline: none;
 }
 
-.header__title__list {
-  margin-block-start: 70px;
-  display: grid;
-  gap: 55px;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr min-content;
-}
-
 .header__title {
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  font-family: 'IBM Plex Mono';
   font-style: normal;
   font-weight: 700;
   line-height: 82.5%;
@@ -111,7 +126,7 @@
 .decorated-zone::after {
   content: "";
   position: absolute;
-  margin-block-start: 30px;
+  margin-block-start: 630px;
   left: 10px;
   width: 25px;
   height: 25px;
@@ -121,6 +136,7 @@
 
 .title-decor {
   background-color: var(--accent-color);
+  color: var(--background-color);
   font-family: var(--font-main, sans-serif);
   font-style: normal;
   font-weight: 700;
@@ -159,11 +175,6 @@
   margin-block-end: 10px;
 }
 
-.header__desc {
-  padding-right: 40px;
-
-}
-
 .title_typography {
   font-family: var(--font-main, sans-serif);
   font-style: normal;
@@ -187,7 +198,7 @@
 }
 
 .span__link:hover {
-  text-decoration: underline;
+  border-bottom: 1px solid var(--font-color);
 }
 
 .span__link:focus {
@@ -199,7 +210,7 @@
 }
 
 .text__content {
-  margin-block-start: 106px;
+  margin-block-start: 40px;
   margin-block-end: 50px;
 }
 
@@ -225,25 +236,21 @@
   line-height: 82.5%;
   color: var(--header-title-color);
   text-shadow: 2px 2px 0px var(--font-shadow);
-  padding-top: 290px;
   margin-block-end: 245px;
-  position: relative;
-  text-align: center;
 }
 
 .footer {
-  top: 10px;
-  position: relative;
-  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  min-height: 668px;
 }
 
 @media (width >=768px) {
-  .page {
-    min-height: 1024px;
-  }
-
-  .header__theme-menu-list {
-    padding-top: 147.5px;
+  .header {
+    row-gap: 162px;
+    height: 100vh;
   }
 
   .header__title__list {
@@ -309,26 +316,6 @@
   .text__content__how_list {
     grid-column: 2;
   }
-
-  .text__content__how_list-item:nth-child(2) {
-
-    margin-block-start: 25px;
-  }
-
-  .text__content__how_list-item:nth-child(3) {
-
-    margin-block-start: 25px;
-  }
-
-
-  .text__content__how_list-item:nth-child(4) {
-    margin-block-start: 25px;
-  }
-
-  .text__content__how_list-item:nth-child(5) {
-    margin-block-start: 4px;
-  }
-
 
   .text__content__how h2 {
     margin-block-start: 20px;
@@ -410,7 +397,7 @@
   }
 
   .decorated-zone::after {
-    margin-block-start: 140px;
+    margin-block-start: 740px;
     left: 20px;
   }
 
@@ -419,21 +406,15 @@
     right: 50px;
   }
 
-  .header__theme-menu-list {
-    padding-top: 190px;
-    padding-right: 20px;
-  }
-
-  .header__title__list {
-    margin-block-start: 176px;
-    margin-inline-start: -10px;
-  }
-
 }
 
 @media (width >=1024px) {
   .page {
     min-height: 768px;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
   }
 
   .header__theme-menu-list {
@@ -447,12 +428,11 @@
 
   .header__desc {
     min-width: 491px;
-    min-height: 71px;
     padding-right: 0;
   }
 
   .header__title {
-    font-size: 157px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
   .header__title__list {
@@ -534,7 +514,6 @@
 
   .footer__title {
     padding-top: 200px;
-    font-size: 157px;
-    margin-block-end: 300px;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }

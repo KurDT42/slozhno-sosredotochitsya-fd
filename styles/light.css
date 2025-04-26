@@ -15,11 +15,7 @@
   --background-image: url(../images/cover-image-light.png);
   --font-shadow: #FF8DCB;
   --header-title-color: #FFC2E6;
-}
-
-
-.theme-light .dark_rec {
-  display: none;
+  --opacity-border: rgba(53, 52, 48, 0.4);
 }
 
 .theme-light .header__theme-menu-button_active {
@@ -44,7 +40,4 @@
     display: none
   }
 
-  .page {
-    background-color: var(--background-color);
-  }
 }
